@@ -1,0 +1,32 @@
+[
+  {
+    "id": "componentes",
+    "titulo": "Componentes",
+    "conteudo": "Componentes são blocos fundamentais de uma aplicação React Native. Eles podem ser funcionais ou baseados em classes, mas atualmente quase todos usam componentes funcionais com hooks. Cada componente deve focar em uma única responsabilidade e pode ser reutilizado em diferentes partes da interface."
+  },
+  {
+    "id": "jsx",
+    "titulo": "JSX",
+    "conteudo": "JSX é uma sintaxe semelhante a HTML usada dentro do JavaScript para criar interfaces de forma declarativa. Ele permite combinar lógica e visual, facilitando a composição de componentes. Embora pareça HTML, JSX é convertido em chamadas de funções JavaScript durante o build."
+  },
+  {
+    "id": "hooks",
+    "titulo": "Hooks",
+    "conteudo": "Hooks são funções especiais que permitem usar estado e outros recursos do React em componentes funcionais. Os mais usados são o useState para gerenciar estados internos, o useEffect para lidar com efeitos colaterais e o useContext para acessar dados globais. Hooks substituem completamente a necessidade de classes."
+  },
+  {
+    "id": "navegacao",
+    "titulo": "Navegação",
+    "conteudo": "A navegação no React Native é normalmente feita usando a biblioteca React Navigation. É possível criar pilhas (Stack), abas (Tabs) e navegadores do tipo Drawer. Cada tela é registrada como uma rota, e a navegação entre elas ocorre através de funções como navigation.navigate()."
+  },
+  {
+    "id": "apis",
+    "titulo": "APIs Nativas",
+    "conteudo": "React Native oferece acesso a diversas APIs nativas como câmera, GPS, armazenamento local, sensores, vibração e notificações. Para isso, é comum usar módulos prontos da comunidade, como expo-location, react-native-camera e AsyncStorage. Quando necessário, é possível criar módulos nativos personalizados."
+  },
+  {
+    "id": "estilos",
+    "titulo": "Estilos",
+    "conteudo": "O estilo no React Native é feito usando JavaScript, através do StyleSheet ou objetos inline. As propriedades de estilo são semelhantes ao CSS, mas usam nomes em camelCase. É comum criar estilos reutilizáveis e manter padronização visual usando temas, estilos globais ou bibliotecas de UI."
+  }
+]
