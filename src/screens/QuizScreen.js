@@ -1,22 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import questions from '../data/questions';
+import QUESTIONS from '../data/questions';
 
 export default function QuizScreen({ navigation }) {
+  const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
 
+  useEffect(() => {
+    const shuffled = [...QUESTIONS].sort(() => Math.random() - 0.5);
+
+    const selected = shuffled.slice(0, 10);
+
+    setQuestions(selected);
+  }, []);
+
+  if (questions.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text>Carregando perguntas...</Text>
+      </View>
+    );
+  }
+
   function handleAnswerPress(optionIndex) {
-    // salva resposta
     const updated = [...answers];
     updated[current] = optionIndex;
     setAnswers(updated);
 
-    // se for a última pergunta, vai para resultado
     if (current === questions.length - 1) {
-      navigation.navigate('Resultados', { answers: updated });
+      navigation.navigate('Resultados', { answers: updated, questions });
     } else {
-      // senão avança automaticamente
       setCurrent(current + 1);
     }
   }
@@ -25,7 +39,10 @@ export default function QuizScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.questionNumber}>Pergunta {current + 1} de {questions.length}</Text>
+      <Text style={styles.questionNumber}>
+        Pergunta {current + 1} de {questions.length}
+      </Text>
+
       <Text style={styles.questionText}>{q.question}</Text>
 
       {q.options.map((opt, index) => (
