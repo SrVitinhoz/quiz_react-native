@@ -12,7 +12,7 @@ export default function ResultsScreen({ route }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Resultado</Text>
-      <Text style={styles.score}>Você acertou {score} de {questions.length}</Text>
+      <Text style={styles.score}>Você acertou {score} de 10</Text>
 
       {/* ScrollView CORRIGIDO */}
       <ScrollView
