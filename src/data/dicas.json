@@ -28,5 +28,57 @@
     "id": "estilos",
     "titulo": "Estilos",
     "conteudo": "O estilo no React Native é feito usando JavaScript, através do StyleSheet ou objetos inline. As propriedades de estilo são semelhantes ao CSS, mas usam nomes em camelCase. É comum criar estilos reutilizáveis e manter padronização visual usando temas, estilos globais ou bibliotecas de UI."
-  }
+  },
+
+{
+  "id": "estado",
+  "titulo": "Gerenciamento de Estado",
+  "conteudo": "Gerenciar o estado é essencial em aplicações React Native. Estados locais podem ser controlados com useState, mas conforme a aplicação cresce, bibliotecas como Context API, Redux ou Zustand ajudam a organizar dados globais. O objetivo é manter o código previsível e mais fácil de manter."
+},
+{
+  "id": "listas",
+  "titulo": "Renderização de Listas",
+  "conteudo": "Para exibir listas de maneira eficiente, o React Native oferece componentes como FlatList e SectionList. Eles rendem itens sob demanda, melhorando a performance em grandes quantidades de dados. Sempre use keys únicas para evitar renderizações desnecessárias."
+},
+{
+  "id": "animacoes",
+  "titulo": "Animações",
+  "conteudo": "Animações tornam a interface mais fluida e atraente. A API Animated do React Native permite criar transições e efeitos com alto controle. Já o react-native-reanimated oferece performance superior, principalmente em animações complexas e gestos avançados."
+},
+{
+  "id": "performance",
+  "titulo": "Performance",
+  "conteudo": "Para deixar o app mais rápido, utilize memoização (React.memo, useMemo, useCallback), evite recriação desnecessária de componentes e prefira listas otimizadas como FlatList. Também é importante minimizar cálculos pesados na renderização e remover logs ou watchers supérfluos."
+},
+{
+  "id": "armazenamento",
+  "titulo": "Armazenamento Local",
+  "conteudo": "Para guardar dados no dispositivo, é comum usar AsyncStorage, MMKV ou SQLite. Armazenamento local é útil para login persistente, preferências de usuário e histórico. Escolha a solução conforme a necessidade: chave-valor simples ou banco de dados completo."
+},
+{
+  "id": "expo_ou_cli",
+  "titulo": "Expo vs React Native CLI",
+  "conteudo": "Expo é ideal para iniciantes e para desenvolver rapidamente, pois oferece módulos prontos e um ambiente simplificado. Já o React Native CLI é mais flexível e permite criar módulos nativos complexos. A escolha depende do projeto: rapidez vs controle total."
+},
+{
+  "id": "debug",
+  "titulo": "Debug e Ferramentas",
+  "conteudo": "Ferramentas como React Native Debugger, Flipper e o próprio console.log ajudam a identificar problemas. É útil inspecionar elementos, monitorar redes e analisar estados globais. Debug eficiente reduz o tempo de desenvolvimento e facilita manutenção."
+},
+{
+  "id": "acessibilidade",
+  "titulo": "Acessibilidade",
+  "conteudo": "Adicionar acessibilidade aumenta o alcance do aplicativo. Use propriedades como accessible, accessibilityLabel e accessibilityRole. As boas práticas incluem contraste adequado, navegação por leitor de telas e elementos com tamanho suficiente para toque."
+},
+{
+  "id": "variaveis_de_ambiente",
+  "titulo": "Variáveis de Ambiente",
+  "conteudo": "Para proteger informações sensíveis, como URLs de API e chaves privadas, utilize variáveis de ambiente com bibliotecas como react-native-dotenv ou expo-constants. Isso evita expor dados críticos no código-fonte."
+},
+{
+  "id": "apis_http",
+  "titulo": "Requisições HTTP",
+  "conteudo": "Faça requisições usando fetch ou bibliotecas como axios. Sempre trate erros, carregamento e estados vazios para melhorar a experiência do usuário. É comum abstrair chamadas de API em arquivos separados para organização."
+}
+
 ]

@@ -5,30 +5,32 @@ import globalStyles from '../styles/globalStyles';
 export default function HomeScreen({ navigation }) {
   return (
     <View style={[globalStyles.container, styles.container]}>
-      <Text style={styles.title}>Bem-vindo ao RNQuizLearn</Text>
+      <Text style={styles.title}>🎮 RNQuizLearn</Text>
       <Text style={styles.subtitle}>
-        Escolha uma das opções abaixo para continuar.
+        Prepare-se para evoluir suas habilidades! Escolha sua próxima missão:
       </Text>
 
-      <View style={styles.buttonGroup}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Quiz')}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.buttonText}>Iniciar Quiz</Text>
-        </TouchableOpacity>
+      <View style={styles.card}>
+        <View style={styles.buttonGroup}>
+          <TouchableOpacity
+            style={[styles.button, styles.primaryButton]}
+            onPress={() => navigation.navigate('Quiz')}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.buttonText}>▶ Iniciar Quiz</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[styles.button, styles.secondaryButton]}
-          onPress={() => navigation.navigate('Dicas')}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.buttonText}>Dicas antes do Quiz</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, styles.secondaryButton]}
+            onPress={() => navigation.navigate('Dicas')}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.buttonText}>📘 Dicas</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
-      <Text style={styles.note}>Escolha o que deseja fazer.</Text>
+      <Text style={styles.note}>💡 Complete desafios e avance seu nível!</Text>
     </View>
   );
 }
@@ -38,38 +40,65 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
+
   title: {
-    fontSize: 26,
-    fontWeight: '700',
+    fontSize: 32,
+    fontWeight: '800',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 8,
   },
+
   subtitle: {
     fontSize: 16,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 24,
+    color: '#444',
   },
+
+  card: {
+    backgroundColor: '#ffffffdd',
+    padding: 20,
+    borderRadius: 18,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+
   buttonGroup: {
-    gap: 14,
-    marginVertical: 10,
+    gap: 16,
   },
+
   button: {
-    backgroundColor: '#2f95dc',
-    padding: 14,
-    borderRadius: 10,
+    padding: 16,
+    borderRadius: 12,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 4,
   },
+
+  primaryButton: {
+    backgroundColor: '#2f95dc',
+  },
+
   secondaryButton: {
-    backgroundColor: '#4a4a4a',
+    backgroundColor: '#444',
   },
+
   buttonText: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 17,
+    fontWeight: '700',
   },
+
   note: {
-    marginTop: 16,
+    marginTop: 20,
     textAlign: 'center',
-    color: '#666',
+    color: '#555',
+    fontStyle: 'italic',
   },
 });

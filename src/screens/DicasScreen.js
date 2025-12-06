@@ -9,23 +9,36 @@ const tips = [
   { id: 'navegacao', title: 'Navegação' },
   { id: 'apis', title: 'APIs Nativas' },
   { id: 'estilos', title: 'Estilos' },
+  { id: 'estado', title: 'Gerenciamento de Estado' },
+  { id: 'listas', title: 'Renderização de Listas' },
+  { id: 'animacoes', title: 'Animações' },
+  { id: 'performance', title: 'Performance' },
+  { id: 'armazenamento', title: 'Armazenamento Local' },
+  { id: 'expo_ou_cli', title: 'Expo vs React Native CLI' },
+  { id: 'debug', title: 'Debug e Ferramentas' },
+  { id: 'acessibilidade', title: 'Acessibilidade' },
+  { id: 'variaveis_de_ambiente', title: 'Variáveis de Ambiente' },
+  { id: 'apis_http', title: 'Requisições HTTP' },
 ];
 
 export default function DicasScreen({ navigation }) {
   return (
-    <ScrollView contentContainerStyle={[globalStyles.container, styles.container]}>      
-      <Text style={styles.title}>Dicas de Estudo</Text>
-      <Text style={styles.subtitle}>Escolha um tema para aprender antes de fazer o quiz.</Text>
+    <ScrollView contentContainerStyle={[globalStyles.container, styles.container]}>
+      <Text style={styles.title}>📚 Área de Treinamento</Text>
+      <Text style={styles.subtitle}>
+        Escolha um módulo para se preparar antes dos desafios!
+      </Text>
 
       <View style={styles.list}>
         {tips.map((item) => (
           <TouchableOpacity
             key={item.id}
             style={styles.card}
-            activeOpacity={0.8}
+            activeOpacity={0.85}
             onPress={() => navigation.navigate('DetalheDica', { dicaId: item.id })}
           >
-            <Text style={styles.cardText}>{item.title}</Text>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+            <Text style={styles.cardSubtitle}>Toque para iniciar o estudo</Text>
           </TouchableOpacity>
         ))}
       </View>
@@ -36,30 +49,52 @@ export default function DicasScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    paddingBottom: 40,
   },
+
   title: {
-    fontSize: 26,
-    fontWeight: '700',
+    fontSize: 28,
+    fontWeight: '800',
     textAlign: 'center',
     marginBottom: 10,
   },
+
   subtitle: {
     fontSize: 16,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 24,
+    color: '#444',
   },
+
   list: {
-    gap: 14,
+    gap: 18,
   },
+
   card: {
     backgroundColor: '#2f95dc',
-    padding: 16,
-    borderRadius: 10,
+    paddingVertical: 18,
+    paddingHorizontal: 16,
+    borderRadius: 14,
+
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
+
+    alignItems: 'center',
   },
-  cardText: {
+
+  cardTitle: {
     color: '#fff',
-    fontSize: 17,
-    fontWeight: '600',
-    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: '800',
+    marginBottom: 4,
+  },
+
+  cardSubtitle: {
+    color: '#e6e6e6',
+    fontSize: 13,
+    opacity: 0.9,
   },
 });

@@ -9,16 +9,14 @@ export default function QuizScreen({ navigation }) {
 
   useEffect(() => {
     const shuffled = [...QUESTIONS].sort(() => Math.random() - 0.5);
-
     const selected = shuffled.slice(0, 10);
-
     setQuestions(selected);
   }, []);
 
   if (questions.length === 0) {
     return (
       <View style={styles.container}>
-        <Text>Carregando perguntas...</Text>
+        <Text style={{fontSize: 18}}>Carregando perguntas...</Text>
       </View>
     );
   }
@@ -36,24 +34,34 @@ export default function QuizScreen({ navigation }) {
   }
 
   const q = questions[current];
+  const progress = ((current + 1) / questions.length) * 100;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.questionNumber}>
-        Pergunta {current + 1} de {questions.length}
-      </Text>
+      {/* Barra de Progresso */}
+      <View style={styles.progressBarBackground}>
+        <View style={[styles.progressBarFill, { width: `${progress}%` }]} />
+      </View>
 
-      <Text style={styles.questionText}>{q.question}</Text>
+      <Text style={styles.stageText}>🔥 Fase {current + 1}</Text>
 
-      {q.options.map((opt, index) => (
-        <TouchableOpacity
-          key={index}
-          style={styles.optionButton}
-          onPress={() => handleAnswerPress(index)}
-        >
-          <Text style={styles.optionText}>{opt}</Text>
-        </TouchableOpacity>
-      ))}
+      <View style={styles.questionBox}>
+        <Text style={styles.questionTitle}>Pergunta {current + 1}</Text>
+        <Text style={styles.questionText}>{q.question}</Text>
+      </View>
+
+      <View style={styles.optionsContainer}>
+        {q.options.map((opt, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.optionButton}
+            activeOpacity={0.85}
+            onPress={() => handleAnswerPress(index)}
+          >
+            <Text style={styles.optionText}>{opt}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
   );
 }
@@ -62,28 +70,77 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: 'center',
-    backgroundColor: '#FFF',
+    backgroundColor: '#f0f4ff',
   },
-  questionNumber: {
-    fontSize: 18,
-    marginBottom: 10,
+
+  // Barra de progresso
+  progressBarBackground: {
+    height: 14,
+    width: '100%',
+    backgroundColor: '#d6d6d6',
+    borderRadius: 10,
+    marginBottom: 20,
+    overflow: 'hidden',
+  },
+  progressBarFill: {
+    height: '100%',
+    backgroundColor: '#4f6cff',
+  },
+
+  stageText: {
+    fontSize: 20,
+    fontWeight: '800',
     textAlign: 'center',
+    marginBottom: 15,
+    color: '#333',
   },
+
+  questionBox: {
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 14,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 5,
+    marginBottom: 20,
+  },
+
+  questionTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 6,
+    color: '#4f6cff',
+  },
+
   questionText: {
     fontSize: 20,
     fontWeight: '600',
-    marginBottom: 20,
+    color: '#333',
     textAlign: 'center',
   },
-  optionButton: {
-    padding: 15,
-    marginVertical: 8,
-    backgroundColor: '#e6e6e6',
-    borderRadius: 10,
+
+  optionsContainer: {
+    marginTop: 10,
   },
+
+  optionButton: {
+    padding: 16,
+    marginVertical: 8,
+    backgroundColor: '#4f6cff',
+    borderRadius: 12,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 5,
+  },
+
   optionText: {
-    fontSize: 16,
+    color: '#fff',
+    fontSize: 17,
+    fontWeight: '700',
     textAlign: 'center',
   },
 });
